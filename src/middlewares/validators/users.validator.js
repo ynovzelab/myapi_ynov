@@ -6,13 +6,13 @@ const userSchemaValidation = (req, res, next) => {
         firstName: Joi.string().required(),
         lastName: Joi.string().required(),
         email: Joi.string().email(),
-        password: Joi.string().required()
+        password: Joi.string().regex(RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{6,64}$')).required()
     });
     
     const validation = userValidationSchema.validate(req.body);
 
     if (validation.error) {
-        return res.send({
+        return res.status(400).send({
             error: validation.error
         })
     }

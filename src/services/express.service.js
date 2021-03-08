@@ -1,5 +1,5 @@
 require('dotenv').config();
-const express = require('express');
+import express from 'express';
 const app = express();
 const apiRouter = require('../routes');
 const bodyParser = require('body-parser');

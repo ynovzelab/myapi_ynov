@@ -23,7 +23,10 @@ const userSchema = new Schema({
         minlength: 4,
         // maxlength: 50,
         unique: true
-    }
+    },
+    orders: [{
+        type:Schema.Types.ObjectId, ref:'Order'
+    }]
 })
 
 module.exports = mongoose.model('User', userSchema);
