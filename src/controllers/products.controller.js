@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         error: 500,
-        message: err.message || 'some error occured while creating user',
+        message: err.message || 'some error occured while creating an user',
       });
     });
 };
